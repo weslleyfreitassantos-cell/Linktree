@@ -1,13 +1,20 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "linktree",
-  "main": "worker.js",
-  "compatibility_date": "2026-10-19",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "./deploy-clean",
-    "not_found_handling": "single-page-application"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "linktree",
+	"main": "worker.js",
+	"compatibility_date": "2026-10-19",
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": "./deploy-clean",
+		"not_found_handling": "single-page-application"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "LINKTREE_DATA",
+			"id": "2e9dac63929f421cb801d537a13fcbc3",
+			"remote": true
+		}
+	]
 }
