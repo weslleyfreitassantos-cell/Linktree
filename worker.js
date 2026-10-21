@@ -6,8 +6,8 @@ export default {
     if (!isFile && !isAdmin) {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
       url.pathname = '/index.html';
-      url.searchParams.set('slug', slug);
-      return env.ASSETS.fetch(new Request(url.toString(), { method: request.method, headers: request.headers }));
+      url.search = `?slug=${encodeURIComponent(slug)}`;
+      return env.ASSETS.fetch(url);
     }
     return env.ASSETS.fetch(request);
   }
