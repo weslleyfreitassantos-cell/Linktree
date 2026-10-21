@@ -2,7 +2,7 @@
 window.linktreeConfig = {
   name: 'Tec Escola',
   bio: 'Gestão Acadêmica Inteligente',
-  avatar: { text: 'Tec\nEscola', image: '' },
+  avatar: { text: 'Tec\nEscola', image: 'assets/logo-tec-escola.png' },
   theme: {
     background: '#2c53af',
     button: 'rgba(247, 247, 242, .78)',
