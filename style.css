@@ -34,6 +34,7 @@ h1 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700; }
 .link-platform .link-icon:has(.tiktok-mark) { width:42px; height:42px; background:#111 !important; padding:6px !important; border-radius:50%; overflow:visible !important; }
 .tiktok-mark { display:flex; width:30px; height:30px; align-items:center; justify-content:center; overflow:visible; }
 .tiktok-mark img { width:30px; height:30px; max-width:none; max-height:none; display:block; object-fit:contain; overflow:visible; }
+.tiktok-mark svg { width:30px; height:30px; display:block; color:#fff; fill:currentColor; overflow:visible; }
 .link-platform .link-icon:has(img[src*="whatsapp"]) { background:#25D366; padding:7px; }
 .link-platform .link-icon:has(img[src*="whatsapp"]) img { filter:brightness(0) invert(1); }
 .site-mark { color:#fff; font-size:10px; font-weight:800; letter-spacing:-.5px; }
