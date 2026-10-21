@@ -1,12 +1,16 @@
 (function () {
-  const params = new URLSearchParams(location.search), id = params.get('id');
+  const params = new URLSearchParams(location.search);
   // O domínio principal é a plataforma administrativa. Os Linktrees públicos
   // continuam sendo páginas individuais acessadas com ?id=...
-  if (!id && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+  const records = JSON.parse(localStorage.getItem('linktrees') || '[]');
+  const pathSlug = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, ''));
+  const slugify = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const pathRecord = pathSlug ? records.find(x => slugify(x.name) === pathSlug) : null;
+  const id = params.get('id') || pathRecord?.id;
+  if (!id && !pathRecord && !['localhost', '127.0.0.1'].includes(location.hostname)) {
     location.replace('admin.html');
     return;
   }
-  const records = JSON.parse(localStorage.getItem('linktrees') || '[]');
   if (params.get('setbg') === 'education') {
     records.forEach(x => { if (x.config?.theme) x.config.theme.backgroundImage = ''; });
     localStorage.setItem('linktrees', JSON.stringify(records));
