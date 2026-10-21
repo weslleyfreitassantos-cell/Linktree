@@ -16,7 +16,7 @@ export default {
     }
     if (!/\.[a-z0-9]+$/i.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/admin.html') {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
-      return new Response(null, { status: 302, headers: { Location: `${url.origin}/index.html?slug=${encodeURIComponent(slug)}&v=19`, 'Cache-Control': 'no-store, no-cache, must-revalidate', 'Set-Cookie': `lt_slug=${encodeURIComponent(slug)}; Path=/; Max-Age=86400; SameSite=Lax` } });
+      return new Response(null, { status: 302, headers: { Location: `${url.origin}/index.html?slug=${encodeURIComponent(slug)}&v=${Date.now()}`, 'Cache-Control': 'no-store, no-cache, must-revalidate', 'Set-Cookie': `lt_slug=${encodeURIComponent(slug)}; Path=/; Max-Age=86400; SameSite=Lax` } });
     }
     const assetResponse = await env.ASSETS.fetch(request);
     const headers = new Headers(assetResponse.headers);
