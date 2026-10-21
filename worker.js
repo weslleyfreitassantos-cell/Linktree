@@ -7,7 +7,7 @@ export default {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
       url.pathname = '/index.html';
       url.searchParams.set('slug', slug);
-      return env.ASSETS.fetch(new Request(url, request));
+      return env.ASSETS.fetch(new Request(url.toString(), { method: request.method, headers: request.headers }));
     }
     return env.ASSETS.fetch(request);
   }
