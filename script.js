@@ -8,7 +8,8 @@
   const pathRecord = pathSlug ? records.find(x => slugify(x.name) === pathSlug) : null;
   const id = params.get('id') || pathRecord?.id;
   if (params.get('slug')) history.replaceState(null, '', `/${slugify(pathRecord?.name || params.get('slug'))}`);
-  if (!id && !pathRecord && !params.get('slug') && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+  const isInstagramBrowser = /Instagram/i.test(navigator.userAgent || '');
+  if (!id && !pathRecord && !params.get('slug') && !isInstagramBrowser && !['localhost', '127.0.0.1'].includes(location.hostname)) {
     location.replace('admin.html');
     return;
   }
