@@ -19,7 +19,7 @@
   <link rel="dns-prefetch" href="//www.tiktok.com">
   <link rel="dns-prefetch" href="//api.whatsapp.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=13&rev=tiktok-complete-mark" />
+  <link rel="stylesheet" href="style.css?v=14&rev=tiktok-no-crop-final" />
 </head>
 <body class="is-loading">
   <main class="page-shell">
@@ -66,7 +66,7 @@
       var iconMarkup=icon.innerHTML;
       if(lower.includes('instagram')) iconMarkup='<img src="assets/instagram.svg?v=1" alt="">';
       else if(lower.includes('whatsapp')) iconMarkup='<img src="assets/whatsapp.svg?v=1" alt="">';
-      else if(lower.includes('tik')) iconMarkup='<span class="tiktok-mark"><img src="assets/tiktok.svg?v=2" alt=""></span>';
+      else if(lower.includes('tik')) iconMarkup='<span class="tiktok-mark"><img src="assets/tiktok.svg?v=3" alt="TikTok"></span>';
       else if(lower.includes('site')) iconMarkup='<span class="site-mark">WWW</span>';
       a.innerHTML='<span class="link-access">Acessar</span><span class="link-platform"><span class="link-label">'+label+'</span><span class="link-icon" aria-hidden="true" style="color:'+color+'">'+iconMarkup+'</span></span>';
     });
