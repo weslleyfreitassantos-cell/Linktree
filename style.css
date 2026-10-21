@@ -8,6 +8,7 @@
   --font: 'DM Sans', sans-serif;
   --radius: 28px;
 }
+.page-shell{scrollbar-width:none;-ms-overflow-style:none}.page-shell::-webkit-scrollbar{display:none}
 
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
