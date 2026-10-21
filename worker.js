@@ -15,7 +15,7 @@ export default {
     }
     if (!/\.[a-z0-9]+$/i.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/admin.html') {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
-      return new Response(null, { status: 302, headers: { Location: `${url.origin}/?slug=${encodeURIComponent(slug)}`, 'Set-Cookie': `lt_slug=${encodeURIComponent(slug)}; Path=/; Max-Age=86400; SameSite=Lax` } });
+      return new Response(null, { status: 302, headers: { Location: `${url.origin}/index.html?slug=${encodeURIComponent(slug)}`, 'Set-Cookie': `lt_slug=${encodeURIComponent(slug)}; Path=/; Max-Age=86400; SameSite=Lax` } });
     }
     return env.ASSETS.fetch(request);
   }
