@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=5" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+  <title>Configurações | Linktree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css?v=5">
+  <style>.tree-actions{display:flex!important;gap:24px!important;margin-left:20px!important}.tree-actions button{margin:0!important}</style>
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="login-card" id="loginCard">
+      <div class="mini-mark">Sua<br>marca</div><h1>Área de configurações</h1><p>Entre para editar seu Linktree.</p>
+      <form id="loginForm"><label>Usuário<input id="username" autocomplete="username" required></label><label>Senha<input id="password" type="password" autocomplete="current-password" required></label><button>Entrar</button><small id="loginError" role="alert"></small></form>
+    </section>
+    <section class="manager" id="manager" hidden>
+      <header><div><span class="eyebrow">PAINEL ADMINISTRATIVO</span><h1>Meus Linktrees</h1><p class="manager-copy">Crie e gerencie várias páginas de links.</p></div></header>
+      <button id="createLinktree">+ Criar Linktree</button>
+      <div id="treeList" class="tree-list"></div>
+    </section>
+    <section class="editor" id="editor" hidden>
+      <header><div><span class="eyebrow">EDITAR LINKTREE</span><h1>Configurar página</h1></div><button type="button" class="secondary" id="backToManager">Voltar</button></header>
+      <form id="settingsForm">
+        <div class="grid">
+          <label>Nome do perfil<input id="name"></label><label>Descrição<input id="bio"></label>
+          <label>Texto da logo<textarea id="avatarText" rows="2"></textarea></label><label>Imagem da logo<input id="avatarImage" type="file" accept="image/*"><small id="avatarFileName">Escolha uma imagem do computador</small></label>
+          <label>Cor do fundo<div class="color-field"><input id="background" type="color"><input id="backgroundHex" class="hex-value" value="#727c68"></div></label><label>Imagem de background<input id="backgroundImage" type="file" accept="image/*"><small id="backgroundFileName">Opcional — escolha uma imagem do computador</small></label>
+          <label>Cor de destaque/logo<div class="color-field"><input id="accent" type="color"><input id="accentHex" class="hex-value" value="#173d25"></div></label>
+          <label>Cor do texto<div class="color-field"><input id="textColor" type="color"><input id="textHex" class="hex-value" value="#f9f8f2"></div></label><label>Cor do texto dos botões<div class="color-field"><input id="buttonText" type="color"><input id="buttonTextHex" class="hex-value" value="#272b27"></div></label>
+          <label>Fonte<select id="font"><option value="'DM Sans', sans-serif">DM Sans</option><option value="'Playfair Display', serif">Playfair Display</option><option value="Arial, sans-serif">Arial</option><option value="Georgia, serif">Georgia</option></select></label>
+          <label>Formato dos botões<select id="radius"><option value="28px">Arredondado</option><option value="8px">Levemente arredondado</option><option value="0px">Quadrado</option></select></label>
+        </div>
+        <fieldset><legend>Links</legend><div id="linksEditor"></div><button type="button" class="secondary" id="addLink">+ Adicionar link</button></fieldset>
+        <div class="actions"><button type="submit" id="saveButton">Salvar Linktree</button><button type="button" class="secondary" id="preview">Visualizar em nova aba</button><button type="button" class="secondary" id="reset">Restaurar padrão</button></div>
+      </form>
+    </section>
+  </main>
+  <script src="config.js?v=5"></script><script src="admin.js?v=5&rev=individual-links1"></script>
+</body>
+</html>
