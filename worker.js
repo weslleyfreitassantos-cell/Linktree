@@ -16,7 +16,7 @@ export default {
     }
     if (!/\.[a-z0-9]+$/i.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/admin.html') {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
-      const assetRequest = new Request(`${url.origin}/index.html?slug=${encodeURIComponent(slug)}&route=public`, request);
+      const assetRequest = new Request(`${url.origin}/index.html?slug=${encodeURIComponent(slug)}&route=public`, { method: 'GET', headers: request.headers });
       const assetResponse = await env.ASSETS.fetch(assetRequest);
       const headers = new Headers(assetResponse.headers);
       headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
