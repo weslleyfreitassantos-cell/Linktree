@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="theme-color" content="#6e7965" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=5" />
+  <style>
+    .decor,.fruit-bowl{display:none!important}
+    body.is-loading .page-shell{visibility:hidden}
+    .page-shell{background-color:#071a3b;background-image:linear-gradient(rgba(8,24,60,.16),rgba(8,24,60,.16)),url('assets/background-educacao.png?v=2');background-position:center;background-size:cover;background-repeat:no-repeat}
+  </style>
+  <title>Seu nome | Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5&rev=mobile-owl1" />
+</head>
+<body class="is-loading">
+  <main class="page-shell">
+    <section class="profile" aria-label="Perfil e links">
+      <div class="avatar" id="avatar" aria-label="Logo">Sua<br>marca</div>
+      <h1 id="profileName">Seu nome</h1>
+      <p id="profileBio">Uma frase curta sobre você</p>
+
+      <nav class="links" id="links" aria-label="Links principais"></nav>
+
+      <div class="socials" id="socials" aria-label="Redes sociais"></div>
+    </section>
+
+  </main>
+
+  <script src="config.js?v=2"></script>
+  <script src="script.js?v=5&rev=hydration-lock1"></script>
+  <script>
+    document.querySelectorAll('#links a[href*="whatsapp"],#links a[href*="wa.me"]').forEach(function(a){
+      var label=a.querySelector('span:last-child')?.textContent||'WhatsApp';
+      a.innerHTML='<span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4a9.2 9.2 0 0 1 9.2 9.2 9.2 9.2 0 0 1-9.2 9.2 9 9 0 0 1-4.8-1.4L2.7 21l1.4-4.4A9.2 9.2 0 1 1 12 2.4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path transform="translate(1.3 1.3) scale(.82)" d="M8 8c.4-.4.8-.3 1.1.1l1.1 1.6c.2.3.2.6-.1.9l-.6.6c.7 1.2 1.7 2.2 3 2.9l.6-.6c.3-.3.6-.3.9-.1l1.6 1.2c.4.3.4.7 0 1-.8.8-1.9.9-3.1.4-2.7-1.1-4.7-3.1-5.9-5.8-.5-1.2-.4-2.2.3-3z" fill="currentColor"/></svg></span><span>'+label+'</span>';
+    });
+  </script>
+  <script>
+    document.querySelectorAll('#links a[href*="whatsapp"],#links a[href*="wa.me"]').forEach(function(a){
+      var label=a.querySelector('span:last-child')?.textContent||'WhatsApp';
+      a.innerHTML='<span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="11.5" r="8.7" fill="none" stroke="currentColor" stroke-width="1.8"/><path transform="translate(1.55 1.05) scale(.9)" d="M8 8c.4-.4.8-.3 1.1.1l1.1 1.6c.2.3.2.6-.1.9l-.6.6c.7 1.2 1.7 2.2 3 2.9l.6-.6c.3-.3.6-.3.9-.1l1.6 1.2c.4.3.4.7 0 1-.8.8-1.9.9-3.1.4-2.7-1.1-4.7-3.1-5.9-5.8-.5-1.2-.4-2.2.3-3z" fill="currentColor"/></svg></span><span>'+label+'</span>';
+    });
+  </script>
+  <script>
+    document.querySelectorAll('#links a[href*="tiktok"]').forEach(function(a){
+      var label=a.querySelector('span:last-child')?.textContent||'Tik Tok';
+      a.querySelector('.link-icon').innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M14.2 3h3c.2 1.7 1.1 3 2.8 3.8v3.1c-1.1-.1-2.1-.5-3-1.1v6.1a5.2 5.2 0 1 1-4.5-5.1v3.1a2.1 2.1 0 1 0 1.7 2V3z"/></svg>';
+    });
+  </script>
+  <script>
+    document.querySelectorAll('#links a').forEach(function(a){
+      var icon=a.querySelector('.link-icon'), label=a.querySelector('span:last-child')?.textContent||'Abrir link';
+      if(!icon) return;
+      var lower=label.toLowerCase(),color=(a.href.includes('whatsapp')||a.href.includes('wa.me')||lower.includes('whatsapp'))?'#25D366':(lower.includes('instagram')?'#E1306C':(lower.includes('site')||a.href.includes('http')&&!lower.includes('tik')?'#2563EB':'#000000'));
+      if(lower.includes('tik')){var p=icon.querySelector('path');if(p){p.setAttribute('fill','currentColor');p.removeAttribute('stroke');}}
+      icon.style.setProperty('color',color,'important');
+      if(icon.querySelector('svg')) icon.querySelector('svg').style.setProperty('color',color,'important');
+      var iconMarkup=icon.innerHTML;
+      if(lower.includes('instagram')) iconMarkup='<img src="assets/instagram.svg?v=1" alt="">';
+      else if(lower.includes('whatsapp')) iconMarkup='<img src="assets/whatsapp.svg?v=1" alt="">';
+      else if(lower.includes('tik')) iconMarkup='<span class="tiktok-mark"><img src="assets/tiktok.svg?v=1" alt=""></span>';
+      else if(lower.includes('site')) iconMarkup='<span class="site-mark">WWW</span>';
+      a.innerHTML='<span class="link-access">Acessar</span><span class="link-platform"><span class="link-label">'+label+'</span><span class="link-icon" aria-hidden="true" style="color:'+color+'">'+iconMarkup+'</span></span>';
+    });
+  </script>
+</body>
+</html>
