@@ -39,7 +39,7 @@ h1 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700; }
 .link-card:hover, .link-card:focus-visible { transform: translateY(-2px); background: var(--surface-hover); box-shadow: 0 8px 20px rgba(24, 31, 23, .13); outline: none; }
 .link-icon { position:static; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; overflow:visible; }
 .link-icon svg { width: 32px; height: 32px; display:block; color:var(--button-text); fill:currentColor; }
-[data-tiktok] .link-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:42px;height:42px;flex:0 0 42px;padding:7px;border-radius:50%;background:#111;overflow:visible}[data-tiktok] .link-icon svg{width:28px;height:28px;color:#fff;flex:0 0 28px;overflow:visible}[data-tiktok]>span:last-child{display:block;width:100%;padding:0 62px;text-align:center;white-space:nowrap;overflow:visible}
+[data-tiktok] .link-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:42px;height:42px;flex:0 0 42px;padding:7px;border-radius:50%;background:#111;overflow:visible}[data-tiktok] .link-icon svg{width:28px;height:28px;color:#fff;flex:0 0 28px;overflow:visible}[data-tiktok]>span:last-child{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;padding:0;text-align:center;white-space:nowrap;overflow:visible}
 .avatar.has-image{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;color:transparent!important}
 .socials { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
 .social { color: var(--text); text-decoration: none; font-size: 19px; font-weight: 700; transition: transform .18s ease, opacity .18s ease; }
