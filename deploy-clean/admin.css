@@ -10,3 +10,5 @@ body{color:#1d2b22}.manager,.editor{background:rgba(247,247,242,.98);border-radi
 .asset-label{min-height:150px}.asset-label input[type=file]{margin-bottom:2px}
 .asset-label{min-height:0}.background-preview{height:72px}.color-field{margin-top:-2px}.color-field+.image-preview{margin-top:4px}
 .field-group{display:grid;gap:4px;margin:0 0 14px}.field-title{display:block;font-size:13px;font-weight:700}.field-group .color-field{margin-top:0}
+.asset-grid{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:15px}.color-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.color-grid .field-group{min-width:0}.color-grid .color-field{display:grid;grid-template-columns:54px 1fr;gap:8px}.color-grid .hex-value{width:100%!important}
+@media(max-width:760px){.color-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.asset-grid,.color-grid{grid-template-columns:1fr}.asset-grid,.color-grid{grid-column:auto}}
