@@ -1,5 +1,11 @@
 (function () {
   const params = new URLSearchParams(location.search), id = params.get('id');
+  // O domínio principal é a plataforma administrativa. Os Linktrees públicos
+  // continuam sendo páginas individuais acessadas com ?id=...
+  if (!id && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+    location.replace('admin.html');
+    return;
+  }
   const records = JSON.parse(localStorage.getItem('linktrees') || '[]');
   if (params.get('setbg') === 'education') {
     records.forEach(x => { if (x.config?.theme) x.config.theme.backgroundImage = ''; });
