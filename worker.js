@@ -1,6 +1,7 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/' && !url.searchParams.has('slug')) return Response.redirect(`${url.origin}/admin.html`, 302);
     if (url.pathname.startsWith('/api/linktree/')) {
       const slug = decodeURIComponent(url.pathname.slice('/api/linktree/'.length));
       if (request.method === 'GET') {
