@@ -31,8 +31,8 @@ h1 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700; }
 .link-platform .link-icon:has(img[src*="instagram"]) { width:42px; height:42px; padding:7px; background:linear-gradient(135deg,#feda75,#d62976 52%,#4f5bd5); }
 .link-platform .link-icon:has(img[src*="instagram"]) img { width:28px; height:28px; filter:brightness(0) invert(1); }
 .link-platform .link-icon:has(img) { background:transparent; padding:0; }
-.link-platform .link-icon:has(.tiktok-mark) { background:#111; padding:7px; }
-.tiktok-mark img { width:24px; height:24px; display:block; }
+.link-platform .link-icon:has(.tiktok-mark) { width:42px; height:42px; background:#111 !important; padding:7px !important; border-radius:50%; }
+.tiktok-mark img { width:28px; height:28px; display:block; }
 .link-platform .link-icon:has(img[src*="whatsapp"]) { background:#25D366; padding:7px; }
 .link-platform .link-icon:has(img[src*="whatsapp"]) img { filter:brightness(0) invert(1); }
 .site-mark { color:#fff; font-size:10px; font-weight:800; letter-spacing:-.5px; }
