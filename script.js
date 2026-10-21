@@ -3,7 +3,8 @@
   // O domínio principal é a plataforma administrativa. Os Linktrees públicos
   // continuam sendo páginas individuais acessadas com ?id=...
   const records = JSON.parse(localStorage.getItem('linktrees') || '[]');
-  const pathSlug = decodeURIComponent(params.get('slug') || location.pathname.replace(/^\/+|\/+$/g, ''));
+  const cookieSlug = (document.cookie.match(/(?:^|; )lt_slug=([^;]+)/)||[])[1] || '';
+  const pathSlug = decodeURIComponent(params.get('slug') || cookieSlug || location.pathname.replace(/^\/+|\/+$/g, ''));
   const slugify = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const pathRecord = pathSlug ? records.find(x => slugify(x.name) === pathSlug) : null;
   const id = params.get('id') || pathRecord?.id;
