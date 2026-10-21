@@ -9,7 +9,7 @@
   const pathRecord = pathSlug ? records.find(x => slugify(x.name) === pathSlug) : null;
   const id = params.get('id') || pathRecord?.id;
   if (params.get('slug')) history.replaceState(null, '', `/${slugify(pathRecord?.name || params.get('slug'))}`);
-  if (params.get('slug') && !pathRecord && !sessionStorage.getItem('publicConfigLoaded')) { fetch(`/api/linktree/${encodeURIComponent(pathSlug)}`).then(r=>r.ok?r.json():null).then(value=>{if(value){localStorage.setItem('linktrees',JSON.stringify([{id:value.id||crypto.randomUUID(),name:value.name||pathSlug,config:value.config||value}]));sessionStorage.setItem('publicConfigLoaded','1');location.reload()}}).catch(()=>{}); }
+  if (params.get('slug') && !sessionStorage.getItem('publicConfigLoaded')) { fetch(`/api/linktree/${encodeURIComponent(pathSlug)}?refresh=${Date.now()}`,{cache:'no-store'}).then(r=>r.ok?r.json():null).then(value=>{if(value){let current=[];try{current=JSON.parse(localStorage.getItem('linktrees')||'[]')}catch{};const fresh={id:value.id||pathRecord?.id||crypto.randomUUID(),name:value.name||pathSlug,config:value.config||value};const rest=current.filter(x=>slugify(x.name)!==pathSlug);localStorage.setItem('linktrees',JSON.stringify([...rest,fresh]));sessionStorage.setItem('publicConfigLoaded','1');location.reload()}}).catch(()=>{}); }
   const isInstagramBrowser = /Instagram/i.test(navigator.userAgent || '');
   if (params.get('setbg') === 'education') {
     records.forEach(x => { if (x.config?.theme) x.config.theme.backgroundImage = ''; });
