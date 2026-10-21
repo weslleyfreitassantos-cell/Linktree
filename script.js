@@ -7,6 +7,7 @@
   const slugify = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const pathRecord = pathSlug ? records.find(x => slugify(x.name) === pathSlug) : null;
   const id = params.get('id') || pathRecord?.id;
+  if (params.get('slug') && pathRecord) history.replaceState(null, '', `/${slugify(pathRecord.name)}`);
   if (!id && !pathRecord && !['localhost', '127.0.0.1'].includes(location.hostname)) {
     location.replace('admin.html');
     return;
