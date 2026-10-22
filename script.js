@@ -50,5 +50,6 @@
   document.querySelectorAll('#links a[data-tiktok]').forEach(a=>{const web='https://www.tiktok.com/@tecescola_';a.dataset.web=web;a.removeAttribute('target');if(!isInstagramBrowser)a.addEventListener('click',e=>{e.preventDefault();try{window.location.assign('snssdk1233://user/profile/tecescola_')}catch{}setTimeout(()=>window.location.replace(web),900)})});
   document.querySelectorAll('#links a[href*="whatsapp"],#links a[href*="wa.me"]').forEach(a=>{const label=a.querySelector('span:last-child')?.textContent||'WhatsApp';a.innerHTML='<span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5a9 9 0 0 1 9 9 9 9 0 0 1-9 9 8.8 8.8 0 0 1-4.8-1.4L3 20.5l1.3-4A9 9 0 1 1 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.1 8.2c.4-.4.8-.3 1.1.1l1 1.5c.2.3.2.6-.1.9l-.5.5c.7 1.2 1.6 2.2 2.8 2.8l.5-.5c.3-.3.6-.3.9-.1l1.5 1c.4.3.4.7 0 1-.8.7-1.8.8-3 .3-2.5-1.1-4.4-3-5.5-5.5-.5-1.2-.4-2.2.3-3z" fill="currentColor"/></svg></span><span>'+label+'</span>'});
   document.getElementById('socials').innerHTML = '';
-  document.body.classList.remove('is-loading');
+  const revealPage=()=>document.body.classList.remove('is-loading');
+  if(c.avatar.image){const logoPreload=new Image();logoPreload.onload=revealPage;logoPreload.onerror=revealPage;logoPreload.src=c.avatar.image}else revealPage();
 })();
