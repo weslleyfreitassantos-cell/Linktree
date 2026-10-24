@@ -23,7 +23,7 @@
   const record = id ? records.find(x => x.id === id) : null;
   const saved = record ? record.config : JSON.parse(localStorage.getItem('linktreeConfig') || 'null');
   const isPlaceholder = saved && saved.links?.[0]?.label === 'Meu site';
-  const c = saved && !isPlaceholder ? { ...window.linktreeConfig, ...saved, theme: { ...window.linktreeConfig.theme, ...(saved.theme || {}) }, avatar: { ...window.linktreeConfig.avatar, ...(saved.avatar || {}) } } : window.linktreeConfig;
+  const c = saved && !isPlaceholder ? { ...window.linktreeConfig, ...saved, theme: { ...window.linktreeConfig.theme, ...(saved.theme || {}), backgroundImage: saved.theme?.backgroundImage || 'assets/background-educacao.png' }, avatar: { ...window.linktreeConfig.avatar, ...(saved.avatar || {}), image: saved.avatar?.image || window.linktreeConfig.avatar.image } } : window.linktreeConfig;
   c.links = [...(c.links || []), ...(c.socials || [])].filter((link, index, all) => link.url && all.findIndex(x => x.url === link.url && x.label === link.label) === index);
   c.links = c.links.map(link => /tiktok/i.test(link.label || '') || /tiktok\.com\/?$/i.test(link.url || '') ? { ...link, url: 'https://www.tiktok.com/@tecescola_' } : link);
   if (c.links.some(x => (x.url || '').includes('instagram.com/tecescola_')) && !c.links.some(x => (x.url || '').includes('tiktok.com/@tecescola_'))) c.links.push({ label: 'Tik Tok', url: 'https://www.tiktok.com/@tecescola_' });
