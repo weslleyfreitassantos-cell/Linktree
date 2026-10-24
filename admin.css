@@ -15,3 +15,5 @@ body{color:#1d2b22}.manager,.editor{background:rgba(247,247,242,.98);border-radi
  .grid>label:first-child{position:relative;margin-bottom:0}.check-row{position:absolute;top:100%;left:0;display:flex;align-items:center;gap:7px;margin-top:8px;font-size:13px;font-weight:600;white-space:nowrap}.check-row input{width:16px;height:16px;margin:0}
 /* Keep the two form columns level while the optional checkbox stays below the name. */
 .asset-grid{margin-top:10px!important}.asset-grid>label:nth-child(2){transform:none!important}
+.asset-grid>label:first-child{transform:translateX(14px)}
+@media(max-width:620px){.asset-grid>label:first-child{transform:none}}
