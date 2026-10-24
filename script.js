@@ -31,7 +31,9 @@
   const root = document.documentElement;
   root.style.setProperty('--background', c.theme.background);
   const bg = c.theme.backgroundImage || '';
-  document.querySelector('.page-shell').style.backgroundImage = bg ? `linear-gradient(rgba(8,24,60,.16),rgba(8,24,60,.16)),url(${bg})` : 'none';
+  const pageShell = document.querySelector('.page-shell');
+  pageShell.style.backgroundColor = c.theme.background || '#ffffff';
+  pageShell.style.backgroundImage = bg ? `linear-gradient(rgba(8,24,60,.16),rgba(8,24,60,.16)),url(${bg})` : 'none';
   root.style.setProperty('--surface', c.theme.button);
   root.style.setProperty('--button-text', c.theme.buttonText);
   root.style.setProperty('--text', c.theme.text);
