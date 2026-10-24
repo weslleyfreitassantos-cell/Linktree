@@ -41,6 +41,7 @@
   root.style.setProperty('--radius', c.theme.radius || '28px');
   document.title = `${c.name} | Links`;
   document.getElementById('profileName').textContent = c.name;
+  document.getElementById('profileName').hidden = c.showName === false;
   document.getElementById('profileBio').textContent = c.bio;
   const avatar = document.getElementById('avatar');
   if (c.avatar.image) { avatar.textContent = ''; avatar.classList.add('has-image'); avatar.style.backgroundImage = `url(${c.avatar.image})`; avatar.style.backgroundColor = 'transparent'; }
