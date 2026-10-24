@@ -41,7 +41,7 @@ h1 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700; }
 .link-card:hover, .link-card:focus-visible { transform: translateY(-2px); background: var(--surface-hover); box-shadow: 0 8px 20px rgba(24, 31, 23, .13); outline: none; }
 .link-icon { position:static; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; overflow:visible; }
 .link-icon svg { width: 32px; height: 32px; display:block; color:var(--button-text); fill:currentColor; }
-.avatar.has-image{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;color:transparent!important}
+.avatar.has-image{width:min(80vw,260px)!important;height:150px!important;border-radius:0!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;background-color:transparent!important;color:transparent!important}
 .socials { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
 .social { color: var(--text); text-decoration: none; font-size: 19px; font-weight: 700; transition: transform .18s ease, opacity .18s ease; }
 .social:hover, .social:focus-visible { transform: scale(1.15); opacity: .75; outline: none; }
