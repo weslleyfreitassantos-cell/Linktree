@@ -32,6 +32,7 @@
   const root = document.documentElement;
   root.style.setProperty('--background', c.theme.background);
   const bg = c.theme.backgroundImage || '';
+  document.body.classList.toggle('has-custom-background', !!bg);
   const pageShell = document.querySelector('.page-shell');
   pageShell.style.backgroundColor = c.theme.background || '#ffffff';
   pageShell.style.backgroundImage = bg ? `url(${bg})` : 'none';
