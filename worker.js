@@ -13,6 +13,10 @@ export default {
         await env.LINKTREE_DATA.put(slug, JSON.stringify(value));
         return Response.json({ ok: true, slug });
       }
+      if (request.method === 'DELETE') {
+        await env.LINKTREE_DATA.delete(slug);
+        return Response.json({ ok: true, slug, deleted: true });
+      }
     }
     if (!/\.[a-z0-9]+$/i.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/admin.html') {
       const slug = url.pathname.replace(/^\/+|\/+$/g, '');
